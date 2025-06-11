@@ -1,96 +1,323 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fake Google</title>
-    <link rel="icon" href="images/rizz.png" type="image/png" />
+    <title>Infinite Typing</title>
+    <link rel="icon" type="image/png" href="uwu.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
     <style>
-      main {
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Roboto, sans-serif;
+        background-color: #36393f;
+        color: #dcddde;
+        margin: 0;
+        padding: 0;
+      }
+
+      #top {
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
-        height: 70vh;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px 120px;
+        text-align: center;
       }
 
-      .image {
-        max-width: 300px;
-        max-height: 100px;
-        margin-bottom: 20px;
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
       }
 
-      .search {
-        padding: 10px 15px;
+      #gay {
+        color: #fee75c !important;
+        font-weight: bold;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .gay2 {
+        font-size: 14px;
+        max-width: 600px;
+        margin: 5px auto;
+        padding: 0 10px;
+      }
+
+      #middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
-        max-width: 500px;
-        border-radius: 24px;
-        border: 1px solid #dcdcdc;
-        font-size: 16px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
+        gap: 12px;
+        margin-top: 20px;
       }
 
-      .search:focus {
+      #token {
+        padding: 14px;
+        border-radius: 10px;
+        font-size: 16px;
+        width: 90%;
+        max-width: 420px;
+        border: none;
         outline: none;
       }
 
-      .button {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #e7e7e7;
-        border: none;
-        border-radius: 5px;
+      #cutebutton,
+      #startButton,
+      #stopButton {
+        width: 90%;
+        max-width: 420px;
+        padding: 16px;
         font-size: 16px;
+        border-radius: 8px;
+        font-family: Roboto;
+        border: none;
         cursor: pointer;
-        font-family: Arial;
-        font-weight: bold;
-        transition: border 0.6s ease;
+        transition: transform 0.2s ease;
       }
 
-      .button:hover {
-        border: solid 1px #636363;
+      #cutebutton {
+        background-color: #5865f2;
+        color: #dcddde;
+      }
+
+      #startButton {
+        background-color: #3ba55d;
+        color: #dcddde;
+        display: none;
+      }
+
+      #stopButton {
+        background-color: #ed4245;
+        color: #dcddde;
+        display: none;
+      }
+
+      #cutebutton:hover,
+      #startButton:hover,
+      #stopButton:hover {
+        transform: scale(1.04);
+      }
+
+      #status {
+        margin: 20px auto 0;
+        padding: 12px 16px;
+        background-color: #2f3136;
+        border: 1px solid #4f545c;
+        border-radius: 8px;
+        font-size: 16px;
+        text-align: center;
+        max-width: 90%;
+        white-space: pre-line;
+      }
+
+      #foot {
+        background-color: #2f3136;
+        color: #b9bbbe;
+        text-align: center;
+        padding: 16px;
+        font-size: 14px;
+        border-top: 1px solid #4f545c;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-family: Roboto, sans-serif;
+        z-index: 999;
+      }
+
+      @media (max-width: 768px) {
+        #middle {
+          flex-direction: column;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .gay2 {
+          font-size: 14px;
+        }
+
+        #gay {
+          font-size: 14px;
+          flex-direction: column;
+        }
+
+        #foot {
+          font-size: 13px;
+        }
+      }
+
+      @media (min-width: 769px) {
+        #middle {
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        #token {
+          width: 400px;
+          font-size: 18px;
+        }
+
+        #cutebutton,
+        #startButton,
+        #stopButton {
+          width: auto;
+          min-width: 130px;
+          font-size: 16px;
+          padding: 14px 20px;
+        }
+
+        #status {
+          font-size: 18px;
+          max-width: 60%;
+        }
+
+        h1 {
+          font-size: 32px;
+        }
+
+        .gay2 {
+          font-size: 16px;
+        }
+
+        #gay {
+          font-size: 16px;
+          flex-direction: row;
+        }
       }
     </style>
   </head>
   <body>
-    <main>
-      <img class="image" src="images/google3.png" alt="Google Logo" />
-      <input
-        class="search"
-        type="text"
-        placeholder="Seach Google or type a URL"
-      />
-      <buton onclick="getRandomSearch()" class="button">Im Feeling Lucky</buton>
-    </main>
+    <!--FYI this code is ASS im a newbie-->
+
+    <div id="top">
+      <h1>Infinite Typing.</h1>
+      <div id="gay">
+        <i class="fas fa-exclamation-triangle"></i> This can get you banned
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h4 class="gay2">
+        This website will NOT store your token, or use it in any way other than
+        the intended use.
+      </h4>
+      <h4 class="gay2">
+        This is a static website. If you don't believe me, check out the source
+        yourself.
+      </h4>
+      <div id="middle">
+        <input id="token" type="password" placeholder="Enter your token..." />
+        <button id="cutebutton">Enter</button>
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+      </div>
+    </div>
+
+    <p id="status"></p>
+    <footer id="foot">Made by sexyplankton</footer>
 
     <script>
-      const search = document.querySelector(".search");
+      const input = document.querySelector("#token");
+      const button = document.querySelector("#cutebutton");
+      const status = document.querySelector("#status");
+      const startBtn = document.querySelector("#startButton");
+      const stopBtn = document.querySelector("#stopButton");
 
-      search.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          const query = search.value;
-          if (query) {
-            window.location.href = `https://www.google.com/search?q=${encodeURIComponent(
-              query
-            )}`;
+      let step = 1;
+      let Token = "";
+      let channelId = "";
+      let intervalId = null;
+
+      function handleSubmit() {
+        const value = input.value.trim();
+
+        if (step === 1) {
+          if (value === "") {
+            status.textContent = "Enter a token";
+            return;
           }
-        }
-      });
+          Token = value;
+          status.textContent = `Token is ready`;
 
-      function getRandomSearch() {
-        const searches = [
-          "ermmm",
-          "inel forums",
-          "how to jerk off more than 3 times a day",
-          "how to stop watching porn",
-        ];
-        const result = searches[Math.floor(Math.random() * searches.length)];
+          input.value = "";
+          input.placeholder = "Enter Channel ID";
+          step = 2;
+        } else if (step === 2) {
+          if (value === "") {
+            status.textContent = "Please enter a channel ID.";
+            return;
+          }
+          channelId = value;
+          status.textContent = `Channel ID saved: ${channelId}. Ready to start.`;
 
-        if (result) {
-          window.location.href = `https://www.google.com/search?q=${encodeURIComponent(
-            result
-          )}`;
+          input.disabled = true;
+          button.disabled = true;
+          startBtn.style.display = "block";
+          stopBtn.style.display = "block";
         }
       }
+
+      function startTyping() {
+        if (intervalId !== null) return;
+        intervalId = setInterval(function () {
+          fetch(`https://discord.com/api/v9/channels/${channelId}/typing`, {
+            method: "POST",
+            headers: {
+              Authorization: `${Token}`,
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  `Server responded with status ${response.status}`
+                );
+              }
+            })
+            .catch((error) => {
+              status.textContent =
+                "❌ couldnt send the request either wrong token or channel id orrr ur adblocker is blocking the post.";
+              console.error("POST error:", error);
+            });
+        }, 8000);
+        status.textContent = "🟢 Started.";
+      }
+
+      function stopTyping() {
+        clearInterval(intervalId);
+        intervalId = null;
+        status.textContent = "🛑 Stopped.";
+      }
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") handleSubmit();
+      });
+
+      button.addEventListener("click", handleSubmit);
+      startBtn.addEventListener("click", startTyping);
+      stopBtn.addEventListener("click", stopTyping);
     </script>
   </body>
 </html>
